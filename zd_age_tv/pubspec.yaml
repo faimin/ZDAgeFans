@@ -31,7 +31,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  get:
+  power_image: ^0.1.0-pre.2 #图片加载
+  dio: ^4.0.6 #网络
+  pull_to_refresh: ^2.0.0 #刷新
+  easy_refresh: ^3.0.4+4 #刷新
+  carousel_slider: ^4.1.1 #轮播
+  sliding_up_panel: ^2.0.0+1 #滑动吸顶
+  fluttertoast: ^8.1.1 #透明弹出框
+  better_player: ^0.0.83 #播放器
+  curved_navigation_bar: ^1.0.3 #tab bar
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +49,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  power_image_ext: ^2.5.3
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

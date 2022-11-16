@@ -31,8 +31,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get:
-  power_image: ^0.1.0-pre.2 #图片加载
+  get: ^4.6.5 #getX
+  cached_network_image: ^3.2.2 #加载网络图片
   dio: ^4.0.6 #网络
   pull_to_refresh: ^2.0.0 #刷新
   easy_refresh: ^3.0.4+4 #刷新

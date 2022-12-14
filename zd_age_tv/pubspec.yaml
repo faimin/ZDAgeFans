@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5 #getX
+  riverpod: ^2.1.1 #状态管理
   cached_network_image: ^3.2.2 #加载网络图片
   dio: ^4.0.6 #网络
   pull_to_refresh: ^2.0.0 #刷新

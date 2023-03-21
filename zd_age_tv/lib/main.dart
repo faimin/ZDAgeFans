@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
         onTap: (index) {
           _incrementCounter();
-          print("点击了index = $index");
+          debugPrint("点击了index = $index");
         },
       ),
       appBar: AppBar(

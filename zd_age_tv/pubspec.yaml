@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.4 <3.0.0'
+  sdk: '>=2.19.4 <3.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -32,14 +32,14 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5 #getX
-  riverpod: ^2.1.1 #状态管理
-  cached_network_image: ^3.2.2 #加载网络图片
-  dio: ^4.0.6 #网络
+  flutter_riverpod: ^2.3.2 #状态管理
+  cached_network_image: ^3.2.3 #加载网络图片
+  dio: ^5.0.3 #网络
   pull_to_refresh: ^2.0.0 #刷新
-  easy_refresh: ^3.0.4+4 #刷新
-  carousel_slider: ^4.1.1 #轮播
+  easy_refresh: ^3.3.1 #刷新
+  carousel_slider: ^4.2.1 #轮播
   sliding_up_panel: ^2.0.0+1 #滑动吸顶
-  fluttertoast: ^8.1.1 #透明弹出框
+  fluttertoast: ^8.2.1 #透明弹出框
   better_player: ^0.0.83 #播放器
   curved_navigation_bar: ^1.0.3 #tab bar
 

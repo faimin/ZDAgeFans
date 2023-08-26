@@ -32,18 +32,18 @@ dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5 #getX
-  flutter_riverpod: ^2.3.2 #状态管理
+  flutter_riverpod: ^2.3.7 #状态管理
   cached_network_image: ^3.2.3 #加载网络图片
-  dio: ^5.0.3 #网络
+  dio: ^5.3.2 #网络
   pull_to_refresh: ^2.0.0 #刷新
-  easy_refresh: ^3.3.1 #刷新
+  easy_refresh: ^3.3.2+1 #刷新 
   carousel_slider: ^4.2.1 #轮播
   sliding_up_panel: ^2.0.0+1 #滑动吸顶
-  fluttertoast: ^8.2.1 #透明弹出框
+  fluttertoast: ^8.2.2 #透明弹出框
   better_player: ^0.0.83 #播放器
   curved_navigation_bar: ^1.0.3 #tab bar
-  rust_in_flutter: ^1.2.3
-  flutter_rust_bridge: ^1.78.0
+  rust_in_flutter: ^2.9.0
+  flutter_rust_bridge: ^1.81.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

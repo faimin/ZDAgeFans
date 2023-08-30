@@ -42,7 +42,7 @@ dependencies:
   fluttertoast: ^8.2.2 #透明弹出框
   better_player: ^0.0.83 #播放器
   curved_navigation_bar: ^1.0.3 #tab bar
-  rust_in_flutter: ^2.9.0
+  #rust_in_flutter: ^2.9.0
   flutter_rust_bridge: ^1.81.0
 
   # The following adds the Cupertino Icons font to your application.

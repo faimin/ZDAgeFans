@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zd_age_fans/common/http.dart';
-import 'package:zd_age_fans/models/homeDataSource/homeDataSource.dart';
+import 'package:zd_age_fans/models/home_data.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

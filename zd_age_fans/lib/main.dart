@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'widgets/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,14 +50,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,12 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.purple,
         items: const <Widget>[
-          Icon(Icons.add, size: 30),
-          Icon(Icons.list, size: 30),
+          Icon(Icons.home, size: 30),
+          Icon(Icons.recommend, size: 30),
           Icon(Icons.more, size: 30),
         ],
         onTap: (index) {
-          _incrementCounter();
           debugPrint("点击了index = $index");
         },
       ),
@@ -78,20 +70,21 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
+      // body: Center(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     children: <Widget>[
+      //       const Text(
+      //         'You have pushed the button this many times:',
+      //       ),
+      //       Text(
+      //         '$_counter',
+      //         style: Theme.of(context).textTheme.headlineMedium,
+      //       ),
+      //     ],
+      //   ),
+      // ),
+      body: const Home(),
     );
   }
 }

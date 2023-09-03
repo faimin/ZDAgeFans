@@ -1,0 +1,92 @@
+{
+    "latest": [
+        {
+            "AID": 20130002,
+            "Href": "/detail/20130002",
+            "NewTitle": "[TV 01-13]",
+            "PicSmall": "https://cdn.aqdstatic.com:966/age/20130002.jpg",
+            "Title": "弹丸论破 希望学园与绝望高中生"
+          }
+    ],
+    "recommend": [
+        {
+            "AID": 20130002,
+            "Href": "/detail/20130002",
+            "NewTitle": "[TV 01-13]",
+            "PicSmall": "https://cdn.aqdstatic.com:966/age/20130002.jpg",
+            "Title": "弹丸论破 希望学园与绝望高中生"
+          }
+    ],
+    "week_list": {
+        "0": [
+            {
+              "isnew": 1,
+              "id": 20230139,
+              "wd": 0,
+              "name": "堀与宫村 -piece-",
+              "mtime": "2023-09-03 00:16:11",
+              "namefornew": "00:00 第10集"
+            }
+        ],
+        "1": [
+            {
+              "isnew": 1,
+              "id": 20230139,
+              "wd": 0,
+              "name": "堀与宫村 -piece-",
+              "mtime": "2023-09-03 00:16:11",
+              "namefornew": "00:00 第10集"
+            }
+        ],
+        "2": [
+            {
+              "isnew": 1,
+              "id": 20230139,
+              "wd": 0,
+              "name": "堀与宫村 -piece-",
+              "mtime": "2023-09-03 00:16:11",
+              "namefornew": "00:00 第10集"
+            }
+        ],
+        "3": [
+            {
+              "isnew": 1,
+              "id": 20230139,
+              "wd": 0,
+              "name": "堀与宫村 -piece-",
+              "mtime": "2023-09-03 00:16:11",
+              "namefornew": "00:00 第10集"
+            }
+        ],
+        "4": [
+            {
+              "isnew": 1,
+              "id": 20230139,
+              "wd": 0,
+              "name": "堀与宫村 -piece-",
+              "mtime": "2023-09-03 00:16:11",
+              "namefornew": "00:00 第10集"
+            }
+        ],
+        "5": [
+            {
+              "isnew": 1,
+              "id": 20230139,
+              "wd": 0,
+              "name": "堀与宫村 -piece-",
+              "mtime": "2023-09-03 00:16:11",
+              "namefornew": "00:00 第10集"
+            }
+        ],
+        "6": [
+            {
+              "isnew": 1,
+              "id": 20230139,
+              "wd": 0,
+              "name": "堀与宫村 -piece-",
+              "mtime": "2023-09-03 00:16:11",
+              "namefornew": "00:00 第10集"
+            }
+        ]
+    }
+}

@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:zd_age_fans/common/http.dart';
 import 'package:zd_age_fans/models/home_data.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key, required this.page});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.pageIndex});
 
-  final int page;
+  final int pageIndex;
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomeState extends State<Home> {
-  List<FilmItem> itemList = [];
+class _HomePageState extends State<HomePage> {
+  List<CartoonItem> itemList = [];
 
   Future<HomeDataSource> parseData(Map<String, dynamic> json) async {
     //final json = jsonDecode(responseBody).cast<Map<String, dynamic>>();
@@ -29,7 +30,7 @@ class _HomeState extends State<Home> {
 
     final data = await parseData(response.data as Map<String, dynamic>);
     setState(() {
-      itemList = widget.page == 0 ? data.latest : data.recommend;
+      itemList = widget.pageIndex == 0 ? data.latest : data.recommend;
     });
   }
 
@@ -49,7 +50,13 @@ class _HomeState extends State<Home> {
             childAspectRatio: 0.8),
         itemCount: itemList.length,
         itemBuilder: (context, index) {
-          return Image.network(itemList[index].picSmall);
+          return GestureDetector(
+            child: CachedNetworkImage(imageUrl: itemList[index].picSmall),
+            onTap: () {
+              debugPrint('点击图片了 = $index');
+              //TODO: 跳转页面
+            },
+          );
         });
   }
 }

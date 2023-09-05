@@ -2,25 +2,25 @@ class HomeDataSource {
   HomeDataSource(
       {required this.latest, required this.recommend, required this.weekList});
 
-  List<FilmItem> latest;
-  List<FilmItem> recommend;
+  List<CartoonItem> latest;
+  List<CartoonItem> recommend;
   WeekList weekList;
 
   factory HomeDataSource.fromJson(Map<String, dynamic> json) {
     return HomeDataSource(
-      latest: List<FilmItem>.from((json["latest"] as List).map(
-        (x) => FilmItem.fromJson(x),
+      latest: List<CartoonItem>.from((json["latest"] as List).map(
+        (x) => CartoonItem.fromJson(x),
       )),
-      recommend: List<FilmItem>.from((json["recommend"] as List).map(
-        (x) => FilmItem.fromJson(x),
+      recommend: List<CartoonItem>.from((json["recommend"] as List).map(
+        (x) => CartoonItem.fromJson(x),
       )),
       weekList: WeekList.fromJson(json["week_list"]),
     );
   }
 }
 
-class FilmItem {
-  FilmItem(
+class CartoonItem {
+  CartoonItem(
       {required this.aID,
       required this.href,
       required this.newTitle,
@@ -33,8 +33,8 @@ class FilmItem {
   String picSmall;
   String title;
 
-  factory FilmItem.fromJson(Map<String, dynamic> json) {
-    return FilmItem(
+  factory CartoonItem.fromJson(Map<String, dynamic> json) {
+    return CartoonItem(
       aID: json["AID"],
       href: json["Href"],
       newTitle: json["NewTitle"],

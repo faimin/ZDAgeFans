@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:zd_age_fans/common/http.dart';
 import 'package:zd_age_fans/models/home_data.dart';
+import 'package:zd_age_fans/widgets/cartoon_detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.pageIndex});
@@ -15,8 +16,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<CartoonItem> itemList = [];
 
+  bool _disposed = false;
+
   Future<HomeDataSource> parseData(Map<String, dynamic> json) async {
-    //final json = jsonDecode(responseBody).cast<Map<String, dynamic>>();
     return HomeDataSource.fromJson(json);
   }
 
@@ -25,13 +27,20 @@ class _HomePageState extends State<HomePage> {
       "page": "1",
       "size": "50",
     });
-    //debugPrint("response = $response");
     // return compute(parseData, response);
 
     final data = await parseData(response.data as Map<String, dynamic>);
-    setState(() {
-      itemList = widget.pageIndex == 0 ? data.latest : data.recommend;
-    });
+    if (!_disposed) {
+      setState(() {
+        itemList = widget.pageIndex == 0 ? data.latest : data.recommend;
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _disposed = true;
   }
 
   @override
@@ -53,8 +62,11 @@ class _HomePageState extends State<HomePage> {
           return GestureDetector(
             child: CachedNetworkImage(imageUrl: itemList[index].picSmall),
             onTap: () {
-              debugPrint('点击图片了 = $index');
-              //TODO: 跳转页面
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CartoonDetailPage(),
+                      settings: const RouteSettings(name: '首页')));
             },
           );
         });

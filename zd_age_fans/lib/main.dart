@@ -2,10 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flukit/flukit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'widgets/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -89,8 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   } else {
                     view = KeepAliveWrapper(
                         child: Container(
-                          color: Colors.red,
-                        ));
+                      color: Colors.red,
+                    ));
                   }
                   pages[index] = view;
                 }

@@ -10,8 +10,19 @@ class CartoonDetailPage extends StatefulWidget {
 class _CartoonDetailPageState extends State<CartoonDetailPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.pink,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('动漫详情'),
+      ),
+      body: Center(
+        child: Container(
+            color: Colors.orange,
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("关闭"))),
+      ),
     );
   }
 }

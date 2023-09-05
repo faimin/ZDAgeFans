@@ -73,7 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: PageView.builder(
+      body: Padding(
+        padding: const EdgeInsets.all(15), 
+        child: PageView.builder(
           scrollDirection: Axis.horizontal,
           controller: _pageController,
           itemBuilder: (context, index) {
@@ -98,6 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _bottomNavigationKey.currentState;
             navBarState?.setPage(index);
           }),
+      ) 
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flukit/flukit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'widgets/home_page.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter',
       theme: ThemeData(
         // This is the theme of your application.
         primarySwatch: Colors.pink,
@@ -39,7 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
   final PageController _pageController =
       PageController(initialPage: 0, keepPage: true);
 
-  Map<int, Widget> pages = {0: const HomePage(pageIndex: 0)};
+  Map<int, Widget> pages = {
+    0: const KeepAliveWrapper(child: HomePage(pageIndex: 0))
+  };
 
   bool _isClick = false;
 
@@ -82,11 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Widget? view = pages[index];
                 if (view == null) {
                   if (index == 0 || index == 1) {
-                    view = HomePage(pageIndex: index);
+                    view = KeepAliveWrapper(child: HomePage(pageIndex: index));
                   } else {
-                    view = Container(
-                      color: Colors.red,
-                    );
+                    view = KeepAliveWrapper(
+                        child: Container(
+                          color: Colors.red,
+                        ));
                   }
                   pages[index] = view;
                 }

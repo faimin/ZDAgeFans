@@ -51,6 +51,7 @@ dependencies:
   quiver: ^3.2.1 #工具库
   json_annotation: ^4.8.1
   # json5_model: ^2.0.1
+  flukit: ^3.0.1
 
 dev_dependencies:
   flutter_test:

@@ -3,7 +3,9 @@ import 'package:zd_age_fans/common/http.dart';
 import 'package:zd_age_fans/models/home_data.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({super.key, required this.page});
+
+  final int page;
 
   @override
   State<Home> createState() => _HomeState();
@@ -18,15 +20,16 @@ class _HomeState extends State<Home> {
   }
 
   void fetchData() async {
-    final response = await HttpClient.get('/v2/home-list');
+    final response = await HttpClient.get('/v2/home-list', queryParameters: {
+      "page": "1",
+      "size": "50",
+    });
     //debugPrint("response = $response");
     // return compute(parseData, response);
 
     final data = await parseData(response.data as Map<String, dynamic>);
-    debugPrint("setState = ${data.latest}");
-
     setState(() {
-      itemList = data.latest;
+      itemList = widget.page == 0 ? data.latest : data.recommend;
     });
   }
 

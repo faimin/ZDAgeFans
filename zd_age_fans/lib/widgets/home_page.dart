@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zd_age_fans/common/http.dart';
 import 'package:zd_age_fans/models/home_data.dart';
 import 'package:zd_age_fans/widgets/cartoon_detail_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key, required this.pageIndex});
 
   final int pageIndex;
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   List<CartoonItem> itemList = [];
 
   bool _disposed = false;

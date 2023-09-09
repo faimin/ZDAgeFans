@@ -19,18 +19,8 @@ class HomeNotifier extends StateNotifier<HomeDataSource> {
   }
 
   void fetchData() async {
-    final response = await HttpClient.get('/v2/home-list', queryParameters: {
-      "page": "1",
-      "size": "50",
-    });
+    final response = await HttpClient.get('/v2/home-list');
     final data = HomeDataSource.fromJson(response.data as Map<String, dynamic>);
-    //final data = await parseData(response.data as Map<String, dynamic>);
-
-    // if (!_disposed) {
-    //   setState(() {
-    //     itemList = widget.pageIndex == 0 ? data.latest : data.recommend;
-    //   });
-    // }
 
     state = data;
   }

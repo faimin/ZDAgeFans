@@ -20,14 +20,14 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  get: ^4.6.5 #getX
-  flutter_riverpod: ^2.3.7 #状态管理
+  cupertino_icons: ^1.0.6
+  get: ^4.6.6 #getX
+  flutter_riverpod: ^2.4.0 #状态管理
   cached_network_image: ^3.2.3 #加载网络图片
   dio: ^5.3.2 #网络
   pull_to_refresh: ^2.0.0 #刷新
@@ -37,7 +37,7 @@ dependencies:
   fluttertoast: ^8.2.2 #透明弹出框
   better_player: ^0.0.83 #播放器
   curved_navigation_bar: ^1.0.3 #tab bar
-  #rust_in_flutter: ^2.9.0
+  # rust_in_flutter: ^3.6.0
   flutter_rust_bridge: ^1.81.0
   quiver: ^3.2.1 #工具库
   json_annotation: ^4.8.1

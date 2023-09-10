@@ -20,3 +20,11 @@ Material(
   child: CustomTabbarView()
 )
 ```
+
+### Q: 对函数判空处理
+
+```dart
+final void Function()? click;
+
+widget.click?.call();
+```

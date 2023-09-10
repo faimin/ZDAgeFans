@@ -27,7 +27,7 @@ class _CartoonDetailPageState extends State<CartoonDetailPage> {
               return _buildTopWidget();
             } else {
               return const Material(
-                child: CustomTabbarView(),
+                child: CustomTabbarView(weekList: [],),
               );
             }
           }, childCount: 2))

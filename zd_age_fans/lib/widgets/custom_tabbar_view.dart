@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:zd_age_fans/models/home_data.dart';
 
 class CustomTabbarView extends StatefulWidget {
-  const CustomTabbarView({super.key});
+  const CustomTabbarView({super.key, required this.weekList, this.click});
+
+  final List<List<WeekItem>> weekList;
+  final void Function()? click;
 
   @override
   State<CustomTabbarView> createState() => _CustomTabbarViewState();
@@ -55,7 +59,7 @@ class _CustomTabbarViewState extends State<CustomTabbarView>
         labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         unselectedLabelStyle: const TextStyle(fontSize: 16),
         labelColor: Colors.blue,
-        unselectedLabelColor: Colors.grey,
+        unselectedLabelColor: Colors.yellow,
         indicatorWeight: 3,
         indicatorPadding: const EdgeInsets.symmetric(horizontal: 10),
         indicatorColor: Colors.orangeAccent,
@@ -66,9 +70,21 @@ class _CustomTabbarViewState extends State<CustomTabbarView>
       TabBarView(controller: _tabController, children: _buildListViews());
 
   List<Widget> _buildListViews() {
-    return tabs
+    if (widget.weekList.isEmpty) {
+      return tabs.map((e) => Text(e)).toList();
+    }
+    return widget.weekList
         .map((e) => ListView.builder(
-              itemBuilder: (_, index) => Text(e),
+              itemBuilder: (_, index) => ListTile(
+                  title: Text(e.length > index ? e[index].name : "",
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      )),
+                  onTap: () {
+                    debugPrint("点击了index = $index");
+                    widget.click?.call();
+                  }),
               itemCount: 10,
             ))
         .toList();

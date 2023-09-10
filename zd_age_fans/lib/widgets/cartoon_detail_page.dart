@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
 
 class CartoonDetailPage extends StatefulWidget {
   const CartoonDetailPage({super.key});
@@ -11,7 +12,7 @@ class CartoonDetailPage extends StatefulWidget {
 class _CartoonDetailPageState extends State<CartoonDetailPage> {
   @override
   Widget build(BuildContext context) {
-    const _imageHeight = 200.0;
+    const imageHeight = 200.0;
     return Container(
         color: Colors.purple,
         child: CustomScrollView(slivers: [
@@ -27,32 +28,37 @@ class _CartoonDetailPageState extends State<CartoonDetailPage> {
               color: Colors.cyan,
               padding: const EdgeInsets.all(15),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                CachedNetworkImage(
-                  imageUrl: 'https://cdn.aqdstatic.com:966/age/20220118.jpg',
-                  height: _imageHeight,
-                  width: _imageHeight * 0.75,
-                ),
-                const SizedBox(width: 15),
-                const Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text("游戏王",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 25,
-                              color: Colors.white),
-                          maxLines: 1),
-                      Text("动漫",
-                          style: TextStyle(color: Colors.white, fontSize: 20)),
-                      Text("时间",
-                          style: TextStyle(color: Colors.white, fontSize: 20)),
-                      Text("剧情类型",
-                          style: TextStyle(color: Colors.white, fontSize: 20)),
-                    ]),
-              ]),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    CachedNetworkImage(
+                      imageUrl:
+                          'https://cdn.aqdstatic.com:966/age/20220118.jpg',
+                      height: imageHeight,
+                      width: imageHeight * 0.75,
+                    ),
+                    const SizedBox(width: 15),
+                    const Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("游戏王",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                  color: Colors.white),
+                              maxLines: 1),
+                          Text("动漫",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20)),
+                          Text("时间",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20)),
+                          Text("剧情类型",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20)),
+                        ]),
+                    // const CustomTabbarView(),
+                  ]),
             );
           }, childCount: 1))
         ]));

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:zd_age_fans/models/home_data.dart';
+import 'package:zd_age_fans/models/home_model.dart';
 import 'package:zd_age_fans/providers/home_provider.dart';
 import 'package:zd_age_fans/widgets/cartoon_detail_page.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
 
-final homeProvider = StateNotifierProvider<HomeNotifier, HomeDataSource>(
-    (ref) => HomeNotifier());
+final homeProvider =
+    StateNotifierProvider<HomeNotifier, HomeModel>((ref) => HomeNotifier());
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key, required this.pageIndex});
@@ -21,9 +21,9 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final homeData = ref.watch(homeProvider);
+    final homeModel = ref.watch(homeProvider);
     if (widget.pageIndex == 0) {
-      final weekModel = homeData.weekList;
+      final weekModel = homeModel.weekList;
       return CustomTabbarView(
           weekList: <List<WeekItem>>[
             weekModel.monday,
@@ -42,7 +42,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     settings: const RouteSettings(name: '首页')));
           });
     } else {
-      return _buildRecommendPage(homeData.recommend);
+      return _buildRecommendPage(homeModel.recommend);
     }
   }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zd_age_fans/models/home_data.dart';
+import 'package:zd_age_fans/models/home_model.dart';
 
 class CustomTabbarView extends StatefulWidget {
   const CustomTabbarView({super.key, required this.weekList, this.click});

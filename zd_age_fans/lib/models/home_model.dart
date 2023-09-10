@@ -1,13 +1,13 @@
-class HomeDataSource {
-  HomeDataSource(
+class HomeModel {
+  HomeModel(
       {required this.latest, required this.recommend, required this.weekList});
 
   List<CartoonItem> latest;
   List<CartoonItem> recommend;
   WeekList weekList;
 
-  factory HomeDataSource.fromJson(Map<String, dynamic> json) {
-    return HomeDataSource(
+  factory HomeModel.fromJson(Map<String, dynamic> json) {
+    return HomeModel(
       latest: List<CartoonItem>.from((json["latest"] as List).map(
         (x) => CartoonItem.fromJson(x),
       )),

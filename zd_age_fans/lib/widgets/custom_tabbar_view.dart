@@ -30,20 +30,18 @@ class _CustomTabbarViewState extends State<CustomTabbarView>
   @override
   void initState() {
     super.initState();
-    debugPrint("初始化了");
     _tabController = TabController(length: tabs.length, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("build组件");
     return Column(
       children: <Widget>[
         _buildTabBar(),
         Container(
           color: Colors.purpleAccent,
-          // width: MediaQuery.of(context).size.width,
-          height: 20,
+          //width: MediaQuery.of(context).size.width,
+          height: 300,
           child: _buildTabBarView(),
         )
       ],
@@ -64,11 +62,15 @@ class _CustomTabbarViewState extends State<CustomTabbarView>
         onTap: (index) => debugPrint("点击的tab = $index"),
       );
 
-  Widget _buildTabBarView() => TabBarView(
-      controller: _tabController,
-      children: tabs
-          .map((e) => Center(
-              child: ElevatedButton(
-                  onPressed: () => debugPrint("xxxxx"), child: Text(e))))
-          .toList());
+  Widget _buildTabBarView() =>
+      TabBarView(controller: _tabController, children: _buildListViews());
+
+  List<Widget> _buildListViews() {
+    return tabs
+        .map((e) => ListView.builder(
+              itemBuilder: (_, index) => Text(e),
+              itemCount: 10,
+            ))
+        .toList();
+  }
 }

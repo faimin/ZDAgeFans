@@ -42,6 +42,14 @@ class CartoonItem {
       title: json["Title"],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    "AID": aID,
+    "Href": href,
+    "NewTitle": newTitle,
+    "PicSmall": picSmall,
+    "Title": title,
+  };
 }
 
 class WeekItem {

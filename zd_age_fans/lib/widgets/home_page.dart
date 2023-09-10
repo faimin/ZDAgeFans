@@ -34,11 +34,12 @@ class _HomePageState extends ConsumerState<HomePage> {
             weekModel.saturday,
             weekModel.sunday
           ],
-          click: () {
+          click: (cartoonId) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const CartoonDetailPage(),
+                    builder: (context) =>
+                        CartoonDetailPage(cartoonId: cartoonId),
                     settings: const RouteSettings(name: '首页')));
           });
     } else {
@@ -61,7 +62,8 @@ class _HomePageState extends ConsumerState<HomePage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const CartoonDetailPage(),
+                      builder: (context) =>
+                          CartoonDetailPage(cartoonId: "${itemList[index].aID}"),
                       settings: const RouteSettings(name: '首页')));
             },
           );

@@ -1,17 +1,33 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zd_age_fans/models/detail_model.dart';
+import 'package:zd_age_fans/providers/detail_provider.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
 
-class CartoonDetailPage extends StatefulWidget {
-  const CartoonDetailPage({super.key});
+final detailProvider = StateNotifierProvider<DetailNotifier, DetailModel>(
+    (ref) => DetailNotifier());
+
+class CartoonDetailPage extends ConsumerStatefulWidget {
+  const CartoonDetailPage({super.key, required this.cartoonId});
+
+  final String cartoonId;
 
   @override
-  State<CartoonDetailPage> createState() => _CartoonDetailPageState();
+  ConsumerState<CartoonDetailPage> createState() => _CartoonDetailPageState();
 }
 
-class _CartoonDetailPageState extends State<CartoonDetailPage> {
+class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(detailProvider.notifier).fetchData(widget.cartoonId);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final detailModel = ref.watch(detailProvider);
+
     return Container(
         color: Colors.purple,
         child: CustomScrollView(slivers: [
@@ -24,10 +40,12 @@ class _CartoonDetailPageState extends State<CartoonDetailPage> {
           SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
             if (index == 0) {
-              return _buildTopWidget();
+              return _buildTopWidget(detailModel.video);
             } else {
               return const Material(
-                child: CustomTabbarView(weekList: [],),
+                child: CustomTabbarView(
+                  weekList: [],
+                ),
               );
             }
           }, childCount: 2))
@@ -35,30 +53,33 @@ class _CartoonDetailPageState extends State<CartoonDetailPage> {
   }
 
   static const imageHeight = 200.0;
-  Widget _buildTopWidget() => Container(
+  Widget _buildTopWidget(Video? videoModel) => Container(
       color: Colors.cyan,
       padding: const EdgeInsets.all(15),
       child:
           Row(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
         CachedNetworkImage(
-          imageUrl: 'https://cdn.aqdstatic.com:966/age/20220118.jpg',
+          imageUrl: videoModel?.cover ?? '',
           height: imageHeight,
           width: imageHeight * 0.75,
         ),
         const SizedBox(width: 15),
-        const Column(
+        Column(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("游戏王",
-                  style: TextStyle(
+              Text(videoModel?.name ?? '',
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
                       color: Colors.white),
                   maxLines: 1),
-              Text("动漫", style: TextStyle(color: Colors.white, fontSize: 20)),
-              Text("时间", style: TextStyle(color: Colors.white, fontSize: 20)),
-              Text("剧情类型", style: TextStyle(color: Colors.white, fontSize: 20)),
+              Text(videoModel?.writer ?? '',
+                  style: const TextStyle(color: Colors.white, fontSize: 20)),
+              Text(videoModel?.uptodate ?? '',
+                  style: const TextStyle(color: Colors.white, fontSize: 20)),
+              Text(videoModel?.plot ?? '',
+                  style: const TextStyle(color: Colors.white, fontSize: 20)),
             ]),
       ]));
 }

@@ -5,7 +5,7 @@ class CustomTabbarView extends StatefulWidget {
   const CustomTabbarView({super.key, required this.weekList, this.click});
 
   final List<List<WeekItem>> weekList;
-  final void Function()? click;
+  final void Function(String)? click;
 
   @override
   State<CustomTabbarView> createState() => _CustomTabbarViewState();
@@ -83,7 +83,8 @@ class _CustomTabbarViewState extends State<CustomTabbarView>
                       )),
                   onTap: () {
                     debugPrint("点击了index = $index");
-                    widget.click?.call();
+                    final cartoonId = e.length > index ? e[index].id.toString() : "";
+                    widget.click?.call(cartoonId);
                   }),
               itemCount: 10,
             ))

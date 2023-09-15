@@ -11,8 +11,7 @@ class CustomTabbarView extends StatefulWidget {
   State<CustomTabbarView> createState() => _CustomTabbarViewState();
 }
 
-class _CustomTabbarViewState extends State<CustomTabbarView>
-    with SingleTickerProviderStateMixin {
+class _CustomTabbarViewState extends State<CustomTabbarView> with SingleTickerProviderStateMixin {
   final List<String> tabs = const [
     "星期一",
     "星期二",
@@ -66,28 +65,30 @@ class _CustomTabbarViewState extends State<CustomTabbarView>
         onTap: (index) => debugPrint("点击的tab = $index"),
       );
 
-  Widget _buildTabBarView() =>
-      TabBarView(controller: _tabController, children: _buildListViews());
+  Widget _buildTabBarView() => TabBarView(controller: _tabController, children: _buildListViews());
 
   List<Widget> _buildListViews() {
     if (widget.weekList.isEmpty) {
       return tabs.map((e) => Text(e)).toList();
     }
     return widget.weekList
-        .map((e) => ListView.builder(
-              itemBuilder: (_, index) => ListTile(
-                  title: Text(e.length > index ? e[index].name : "",
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      )),
-                  onTap: () {
-                    debugPrint("点击了index = $index");
-                    final cartoonId = e.length > index ? e[index].id.toString() : "";
-                    widget.click?.call(cartoonId);
-                  }),
-              itemCount: 10,
-            ))
+        .map(
+          (e) => ListView.builder(
+            itemBuilder: (_, index) => ListTile(
+              title: Text(e.length > index ? e[index].name : "",
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  )),
+              onTap: () {
+                debugPrint("点击了index = $index");
+                final cartoonId = e.length > index ? e[index].id.toString() : "";
+                widget.click?.call(cartoonId);
+              },
+            ),
+            itemCount: 10,
+          ),
+        )
         .toList();
   }
 }

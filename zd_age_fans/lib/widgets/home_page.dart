@@ -20,28 +20,36 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage> {
   @override
+  void initState() {
+    super.initState();
+    ref.read(homeProvider.notifier).fetchData();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final homeModel = ref.watch(homeProvider);
     if (widget.pageIndex == 0) {
       final weekModel = homeModel.weekList;
       return CustomTabbarView(
-          weekList: <List<WeekItem>>[
-            weekModel.monday,
-            weekModel.tuesday,
-            weekModel.wednesday,
-            weekModel.thursday,
-            weekModel.friday,
-            weekModel.saturday,
-            weekModel.sunday
-          ],
-          click: (cartoonId) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        CartoonDetailPage(cartoonId: cartoonId),
-                    settings: const RouteSettings(name: '首页')));
-          });
+        weekList: <List<WeekItem>>[
+          weekModel.monday,
+          weekModel.tuesday,
+          weekModel.wednesday,
+          weekModel.thursday,
+          weekModel.friday,
+          weekModel.saturday,
+          weekModel.sunday,
+        ],
+        click: (cartoonId) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CartoonDetailPage(cartoonId: cartoonId),
+              settings: const RouteSettings(name: '首页'),
+            ),
+          );
+        },
+      );
     } else {
       return _buildRecommendPage(homeModel.recommend);
     }
@@ -50,21 +58,24 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget _buildRecommendPage(List<CartoonItem> itemList) {
     return GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 25,
-            crossAxisSpacing: 10,
-            childAspectRatio: 0.8),
+          crossAxisCount: 3,
+          mainAxisSpacing: 25,
+          crossAxisSpacing: 10,
+          childAspectRatio: 0.8,
+        ),
         itemCount: itemList.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             child: CachedNetworkImage(imageUrl: itemList[index].picSmall),
             onTap: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          CartoonDetailPage(cartoonId: "${itemList[index].aID}"),
-                      settings: const RouteSettings(name: '首页')));
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      CartoonDetailPage(cartoonId: "${itemList[index].aID}"),
+                  settings: const RouteSettings(name: '首页'),
+                ),
+              );
             },
           );
         });

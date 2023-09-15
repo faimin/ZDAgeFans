@@ -4,19 +4,21 @@ import 'package:zd_age_fans/models/home_model.dart';
 
 class HomeNotifier extends StateNotifier<HomeModel> {
   HomeNotifier()
-      : super(HomeModel(
+      : super(
+          HomeModel(
             latest: [],
             recommend: [],
             weekList: WeekList(
-                monday: [],
-                tuesday: [],
-                wednesday: [],
-                thursday: [],
-                friday: [],
-                saturday: [],
-                sunday: []))) {
-    fetchData();
-  }
+              monday: [],
+              tuesday: [],
+              wednesday: [],
+              thursday: [],
+              friday: [],
+              saturday: [],
+              sunday: [],
+            ),
+          ),
+        );
 
   void fetchData() async {
     final response = await HttpClient.get('/v2/home-list');

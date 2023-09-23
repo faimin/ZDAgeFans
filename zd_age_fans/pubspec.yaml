@@ -26,8 +26,10 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
-  get: ^4.6.6 #getX
+  crypto: ^3.0.3 #加密
+  # get: ^4.6.6 #getX
   flutter_riverpod: ^2.4.0 #状态管理
+  get_it: ^7.6.4 #中间件
   cached_network_image: ^3.2.3 #加载网络图片
   dio: ^5.3.3 #网络
   pull_to_refresh: ^2.0.0 #刷新

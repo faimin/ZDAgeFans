@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flukit/flukit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:bot_toast/bot_toast.dart';
 import 'widgets/home_page.dart';
 
 void main() {
@@ -22,6 +23,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
       ),
       home: const MyHomePage(title: 'AgeFans'),
+      builder: BotToastInit(),
+      navigatorObservers: [
+        BotToastNavigatorObserver(),
+      ],
     );
   }
 }
@@ -38,9 +43,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
-  final PageController _pageController = PageController(initialPage: 0, keepPage: true);
+  final PageController _pageController =
+      PageController(initialPage: 0, keepPage: true);
 
-  Map<int, Widget> pages = {0: const KeepAliveWrapper(child: HomePage(pageIndex: 0))};
+  Map<int, Widget> pages = {
+    0: const KeepAliveWrapper(child: HomePage(pageIndex: 0))
+  };
 
   bool _isClick = false;
 
@@ -99,7 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
             if (_isClick) {
               return;
             }
-            final CurvedNavigationBarState? navBarState = _bottomNavigationKey.currentState;
+            final CurvedNavigationBarState? navBarState =
+                _bottomNavigationKey.currentState;
             navBarState?.setPage(index);
           },
         ),

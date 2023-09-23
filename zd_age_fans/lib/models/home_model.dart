@@ -21,13 +21,13 @@ class HomeModel {
 
 class CartoonItem {
   CartoonItem(
-      {required this.aID,
+      {required this.id,
       required this.href,
       required this.newTitle,
       required this.picSmall,
       required this.title});
 
-  int aID;
+  int id;
   String href;
   String newTitle;
   String picSmall;
@@ -35,7 +35,7 @@ class CartoonItem {
 
   factory CartoonItem.fromJson(Map<String, dynamic> json) {
     return CartoonItem(
-      aID: json["AID"],
+      id: json["AID"] ?? json["id"] ?? "",
       href: json["Href"],
       newTitle: json["NewTitle"],
       picSmall: json["PicSmall"],
@@ -44,7 +44,7 @@ class CartoonItem {
   }
 
   Map<String, dynamic> toJson() => {
-    "AID": aID,
+    "id": id,
     "Href": href,
     "NewTitle": newTitle,
     "PicSmall": picSmall,

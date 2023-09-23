@@ -72,7 +72,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
-                      CartoonDetailPage(cartoonId: "${itemList[index].aID}"),
+                      CartoonDetailPage(cartoonId: "${itemList[index].id}"),
                   settings: const RouteSettings(name: '首页'),
                 ),
               );

@@ -29,16 +29,17 @@ dependencies:
   get: ^4.6.6 #getX
   flutter_riverpod: ^2.4.0 #状态管理
   cached_network_image: ^3.2.3 #加载网络图片
-  dio: ^5.3.2 #网络
+  dio: ^5.3.3 #网络
   pull_to_refresh: ^2.0.0 #刷新
   easy_refresh: ^3.3.2+1 #刷新
   carousel_slider: ^4.2.1 #轮播
   sliding_up_panel: ^2.0.0+1 #滑动吸顶
-  fluttertoast: ^8.2.2 #透明弹出框
+  #fluttertoast: ^8.2.2 #透明弹出框
+  bot_toast: ^4.1.3 #loading or toast
   better_player: ^0.0.83 #播放器
   curved_navigation_bar: ^1.0.3 #tab bar
-  # rust_in_flutter: ^3.6.0
-  flutter_rust_bridge: ^1.81.0
+  #rust_in_flutter:
+  flutter_rust_bridge: ^1.81.1
   quiver: ^3.2.1 #工具库
   json_annotation: ^4.8.1
   # json5_model: ^2.0.1

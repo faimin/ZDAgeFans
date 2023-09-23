@@ -5,8 +5,10 @@ import 'package:flukit/flukit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'widgets/home_page.dart';
+import 'package:rust_in_flutter/rust_in_flutter.dart';
 
-void main() {
+void main() async {
+  await RustInFlutter.ensureInitialized();
   runApp(const ProviderScope(child: MyApp()));
 }
 

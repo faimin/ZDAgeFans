@@ -19,7 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 
 This project leverages Flutter for GUI and Rust for the backend logic,
 utilizing the capabilities of the
-[Rust-In-Flutter](https://pub.dev/packages/rust_in_flutter) framework.
+[Rinf](https://pub.dev/packages/rinf) framework.
 
 To run and build this app, you need to have
 [Flutter SDK](https://docs.flutter.dev/get-started/install),
@@ -51,5 +51,6 @@ rifs message
 ```
 
 For detailed instructions on writing Rust and Flutter together,
-please refer to Rust-In-Flutter's [documentation](https://docs.cunarist.com/rust-in-flutter).
+please refer to Rust-In-Flutter's [documentation](https://rinf-docs.cunarist.com/).
+
 

@@ -5,10 +5,8 @@ import 'package:flukit/flukit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'widgets/home_page.dart';
-import 'package:rinf/rinf.dart';
 
 void main() async {
-  await Rinf.ensureInitialized();
   runApp(const ProviderScope(child: MyApp()));
 }
 

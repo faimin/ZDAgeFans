@@ -20,7 +20,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.2.0 <4.0.0"
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   flutter:
@@ -28,12 +28,12 @@ dependencies:
   cupertino_icons: ^1.0.6
   crypto: ^3.0.3 #加密
   # get: ^4.6.6 #getX
-  flutter_riverpod: ^2.4.0 #状态管理
-  get_it: ^7.6.4 #中间件
-  cached_network_image: ^3.2.3 #加载网络图片
-  dio: ^5.3.3 #网络
+  flutter_riverpod: ^2.4.9 #状态管理
+  get_it: ^7.6.6 #中间件
+  cached_network_image: ^3.3.1 #加载网络图片
+  dio: ^5.4.0 #网络
   pull_to_refresh: ^2.0.0 #刷新
-  easy_refresh: ^3.3.2+1 #刷新
+  easy_refresh: ^3.3.4 #刷新
   carousel_slider: ^4.2.1 #轮播
   sliding_up_panel: ^2.0.0+1 #滑动吸顶
   #fluttertoast: ^8.2.2 #透明弹出框
@@ -41,9 +41,9 @@ dependencies:
   better_player: ^0.0.83 #播放器
   # chewie: ^1.7.1 #播放器
   curved_navigation_bar: ^1.0.3 #tab bar
-  rinf: #^4.16.3 #rust_in_flutter
+  # rinf: #rust_in_flutter
   protobuf: ^3.1.0
-  flutter_rust_bridge: ^1.81.1
+  flutter_rust_bridge: ^1.82.6
   quiver: ^3.2.1 #工具库
   json_annotation: ^4.8.1
   # json5_model: ^2.0.1

@@ -20,14 +20,13 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.4.0 <4.0.0"
+  sdk: ">=3.4.1 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
   crypto: ^3.0.3 #加密
-  # get: ^4.6.6 #getX
   flutter_riverpod: ^2.4.9 #状态管理
   get_it: ^7.6.6 #中间件
   cached_network_image: ^3.3.1 #加载网络图片
@@ -46,7 +45,7 @@ dependencies:
   flutter_rust_bridge: ^1.82.6
   quiver: ^3.2.1 #工具库
   # json转model
-  json_annotation: ^4.8.1
+  json_annotation: ^4.9.0
   freezed_annotation: ^2.4.1
   # json5_model: ^2.0.1
   # 他人推荐
@@ -61,8 +60,8 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_launcher_icons: ^0.13.1 #启动图标
   # json转model
-  build_runner: ^2.4.6
-  json_serializable: ^6.7.1
+  build_runner: ^2.4.10
+  json_serializable: ^6.8.0
   freezed: ^2.5.2
 
 flutter_launcher_icons:

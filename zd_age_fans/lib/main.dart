@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flukit/flukit.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'widgets/home_page.dart';
+import 'widgets/keep_alive_wrapper.dart';
 
 void main() async {
   runApp(const ProviderScope(child: MyApp()));

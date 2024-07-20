@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
-import 'package:chewie/chewie.dart';
+import 'package:better_player/better_player.dart';
 
 class ChewieVideoPage extends StatefulWidget {
   const ChewieVideoPage({super.key, this.videoUrl = ''});
@@ -11,7 +10,7 @@ class ChewieVideoPage extends StatefulWidget {
 }
 
 class _ChewieVideoPageState extends State<ChewieVideoPage> {
-  late VideoPlayerController _videoPlayerController;
+  late BetterPlayerController _betterPlayerController;
   late Future<void> _initializeVideoPlayerFuture;
 
   final _aspectRatio = 16 / 9;
@@ -19,15 +18,23 @@ class _ChewieVideoPageState extends State<ChewieVideoPage> {
   @override
   void initState() {
     super.initState();
-    _videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
-    _initializeVideoPlayerFuture = _videoPlayerController.initialize();
+    BetterPlayerDataSource betterPlayerDataSource = BetterPlayerDataSource(
+      BetterPlayerDataSourceType.network,
+      widget.videoUrl,
+    );
+    _betterPlayerController = BetterPlayerController(
+      BetterPlayerConfiguration(
+        aspectRatio: _aspectRatio,
+      ),
+    );
+    _initializeVideoPlayerFuture =
+        _betterPlayerController.setupDataSource(betterPlayerDataSource);
   }
 
   /*销毁*/
   @override
   void dispose() {
-    _videoPlayerController.dispose();
+    _betterPlayerController.dispose();
     super.dispose();
   }
 
@@ -42,19 +49,13 @@ class _ChewieVideoPageState extends State<ChewieVideoPage> {
         ),
         backgroundColor: Colors.pink,
       ),
-      body: Center(
+      body: AspectRatio(
+        aspectRatio: _aspectRatio,
         child: FutureBuilder(
           future: _initializeVideoPlayerFuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              return Chewie(
-                controller: ChewieController(
-                  videoPlayerController: _videoPlayerController,
-                  aspectRatio: _aspectRatio, //视频宽高比
-                  autoPlay: true,
-                  fullScreenByDefault: false,
-                ),
-              );
+              return BetterPlayer(controller: _betterPlayerController);
             } else {
               return const Center(child: CircularProgressIndicator());
             }

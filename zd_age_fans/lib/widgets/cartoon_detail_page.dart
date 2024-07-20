@@ -38,7 +38,11 @@ class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
         const SliverAppBar(
           pinned: true,
           expandedHeight: 64,
-          title: Text('动漫详情'),
+          iconTheme: IconThemeData(color: Colors.white),
+          title: Text(
+            '动漫详情',
+            style: TextStyle(color: Colors.white),
+          ),
           backgroundColor: Colors.pink,
         ),
         SliverList(

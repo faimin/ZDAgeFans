@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zd_age_fans/models/detail_model.dart';
 import 'package:zd_age_fans/providers/detail_provider.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
+import 'package:zd_age_fans/widgets/chewie_video_page.dart';
 
 final detailProvider = StateNotifierProvider<DetailNotifier, DetailModel>(
     (ref) => DetailNotifier());
@@ -18,6 +19,9 @@ class CartoonDetailPage extends ConsumerStatefulWidget {
 }
 
 class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
+  static const m3u8URL =
+      'https://svipsvip.ffzy-online5.com/20240706/29593_2dedca4d/index.m3u8';
+
   @override
   void initState() {
     super.initState();
@@ -42,10 +46,21 @@ class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
             if (index == 0) {
               return _buildTopWidget(detailModel.video);
             } else {
-              return const Material(
+              return Material(
                 color: Colors.red,
                 child: CustomTabbarView(
-                  weekList: [],
+                  weekList: const [],
+                  click: (String cartoonId) {
+                    debugPrint('跳转到视频播放页 => cartoon_id: $cartoonId');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            const ChewieVideoPage(videoUrl: m3u8URL),
+                        settings: const RouteSettings(name: '视频播放页'),
+                      ),
+                    );
+                  },
                 ),
               );
             }

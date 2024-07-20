@@ -87,8 +87,9 @@ class _CustomTabbarViewState extends State<CustomTabbarView>
                 ),
                 textAlign: TextAlign.center,
               ),
-              onPressed: () => {
-                debugPrint("点击了$e"),
+              onPressed: () {
+                debugPrint("点击了$e");
+                widget.click?.call('');
               },
             ),
           )

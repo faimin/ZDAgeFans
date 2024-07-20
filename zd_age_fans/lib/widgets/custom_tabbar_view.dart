@@ -11,7 +11,8 @@ class CustomTabbarView extends StatefulWidget {
   State<CustomTabbarView> createState() => _CustomTabbarViewState();
 }
 
-class _CustomTabbarViewState extends State<CustomTabbarView> with SingleTickerProviderStateMixin {
+class _CustomTabbarViewState extends State<CustomTabbarView>
+    with SingleTickerProviderStateMixin {
   final List<String> tabs = const [
     "星期一",
     "星期二",
@@ -53,11 +54,12 @@ class _CustomTabbarViewState extends State<CustomTabbarView> with SingleTickerPr
 
   Widget _buildTabBar() => TabBar(
         tabs: tabs.map((e) => Tab(text: e)).toList(),
+        overlayColor: WidgetStateProperty.all(Colors.pink),
         isScrollable: true,
         controller: _tabController,
         labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         unselectedLabelStyle: const TextStyle(fontSize: 16),
-        labelColor: Colors.blue,
+        labelColor: Colors.white,
         unselectedLabelColor: Colors.yellow,
         indicatorWeight: 3,
         indicatorPadding: const EdgeInsets.symmetric(horizontal: 10),
@@ -65,11 +67,32 @@ class _CustomTabbarViewState extends State<CustomTabbarView> with SingleTickerPr
         onTap: (index) => debugPrint("点击的tab = $index"),
       );
 
-  Widget _buildTabBarView() => TabBarView(controller: _tabController, children: _buildListViews());
+  Widget _buildTabBarView() =>
+      TabBarView(controller: _tabController, children: _buildListViews());
 
   List<Widget> _buildListViews() {
     if (widget.weekList.isEmpty) {
-      return tabs.map((e) => Text(e)).toList();
+      return tabs
+          .map(
+            (e) => ElevatedButton.icon(
+              icon: const Icon(Icons.send),
+              label: const Text(
+                "跳转到播放页",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  // height: 2,
+                  backgroundColor: Color.fromARGB(255, 255, 7, 123),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              onPressed: () => {
+                debugPrint("点击了$e"),
+              },
+            ),
+          )
+          .toList();
     }
     return widget.weekList
         .map(
@@ -82,7 +105,8 @@ class _CustomTabbarViewState extends State<CustomTabbarView> with SingleTickerPr
                   )),
               onTap: () {
                 debugPrint("点击了index = $index");
-                final cartoonId = e.length > index ? e[index].id.toString() : "";
+                final cartoonId =
+                    e.length > index ? e[index].id.toString() : "";
                 widget.click?.call(cartoonId);
               },
             ),

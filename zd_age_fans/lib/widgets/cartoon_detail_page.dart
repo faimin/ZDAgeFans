@@ -43,6 +43,7 @@ class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
               return _buildTopWidget(detailModel.video);
             } else {
               return const Material(
+                color: Colors.red,
                 child: CustomTabbarView(
                   weekList: [],
                 ),
@@ -62,7 +63,8 @@ class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             CachedNetworkImage(
-              imageUrl: videoModel?.cover ?? 'https://www.baidu.com/img/bd_logo1.png',
+              imageUrl:
+                  videoModel?.cover ?? 'https://www.baidu.com/img/bd_logo1.png',
               height: imageHeight,
               width: imageHeight * 0.75,
             ),

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zd_age_fans/models/detail_model.dart';
 import 'package:zd_age_fans/providers/detail_provider.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
-import 'package:zd_age_fans/widgets/chewie_video_page.dart';
+import 'package:zd_age_fans/widgets/video_player_page.dart';
 
 final detailProvider = StateNotifierProvider<DetailNotifier, DetailModel>(
     (ref) => DetailNotifier());

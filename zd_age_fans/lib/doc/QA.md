@@ -28,3 +28,7 @@ final void Function()? click;
 
 widget.click?.call();
 ```
+
+### 参考
+
+- [chewie视频播放器使用](https://www.cnblogs.com/xbinbin/p/17916328.html)

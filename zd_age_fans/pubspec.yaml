@@ -40,6 +40,7 @@ dependencies:
   video_player: ^2.9.1
   chewie: ^1.8.1 #播放器
   curved_navigation_bar: ^1.0.6 #tab bar
+  window_manager: ^0.3.9
   # rinf: #rust_in_flutter
   protobuf: ^3.1.0
   flutter_rust_bridge: ^2.1.0
@@ -52,7 +53,6 @@ dependencies:
   # retrofit: ^4.0.1
   # auto_route: ^7.8.3
   # rxdart: ^0.28.0
-  # window_manager: ^0.3.8
 
 dev_dependencies:
   flutter_test:

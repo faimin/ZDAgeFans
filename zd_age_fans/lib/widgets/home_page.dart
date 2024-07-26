@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:window_manager/window_manager.dart';
 import 'package:zd_age_fans/models/home_model.dart';
 import 'package:zd_age_fans/providers/home_provider.dart';
 import 'package:zd_age_fans/widgets/cartoon_detail_page.dart';
@@ -18,11 +19,60 @@ class HomePage extends ConsumerStatefulWidget {
   ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends ConsumerState<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> with WindowListener {
   @override
   void initState() {
     super.initState();
+    windowManager.addListener(this);
     ref.read(homeProvider.notifier).fetchData();
+    _init();
+  }
+
+  @override
+  void dispose() {
+    windowManager.removeListener(this);
+    super.dispose();
+  }
+
+  void _init() async {
+    await windowManager.setPreventClose(true);
+    setState(() {});
+  }
+
+  @override
+  void onWindowClose() async {
+    bool isPreventClose = await windowManager.isPreventClose();
+    if (!isPreventClose) {
+      return;
+    }
+
+    debugPrint('>>>>>>>>>> onWindowClose');
+
+    showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          content: const Text('是否退出应用?'),
+          actions: [
+            TextButton(
+              child: const Text('取消'),
+              onPressed: () {
+                if (context.mounted) {
+                  Navigator.of(context).pop();
+                }
+              },
+            ),
+            TextButton(
+              child: const Text('退出'),
+              onPressed: () async {
+                Navigator.of(context).pop();
+                await windowManager.destroy();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override

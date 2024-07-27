@@ -27,7 +27,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   crypto: ^3.0.3 #加密
-  flutter_riverpod: ^2.4.9 #状态管理
+  flutter_riverpod: ^2.5.1 #状态管理
   cached_network_image: ^3.3.1 #加载网络图片
   dio: ^5.4.3+1 #网络
   pull_to_refresh: ^2.0.0 #刷新

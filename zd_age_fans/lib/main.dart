@@ -5,8 +5,11 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'widgets/home_page.dart';
 import 'widgets/keep_alive_wrapper.dart';
+import 'package:media_kit/media_kit.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  MediaKit.ensureInitialized();
   runApp(const ProviderScope(child: MyApp()));
 }
 

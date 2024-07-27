@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zd_age_fans/common/mock_data.dart';
 import 'package:zd_age_fans/models/detail_model.dart';
 import 'package:zd_age_fans/providers/detail_provider.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
@@ -19,8 +20,7 @@ class CartoonDetailPage extends ConsumerStatefulWidget {
 }
 
 class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
-  static const m3u8URL =
-      'https://svipsvip.ffzy-online5.com/20240706/29593_2dedca4d/index.m3u8';
+  static final m3u8URL = m3u8List.last;
 
   @override
   void initState() {
@@ -60,7 +60,7 @@ class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            const ChewieVideoPage(videoUrl: m3u8URL),
+                            VideoPlayerPage(videoUrl: m3u8URL),
                         settings: const RouteSettings(name: '视频播放页'),
                       ),
                     );

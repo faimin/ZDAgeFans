@@ -60,7 +60,7 @@ class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            const ChewieVideoPage(videoUrl: m3u8URL),
+                            const VideoPlayerPage(videoUrl: m3u8URL),
                         settings: const RouteSettings(name: '视频播放页'),
                       ),
                     );

@@ -16,8 +16,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     _player,
     configuration: const VideoControllerConfiguration(
       enableHardwareAcceleration: true,
-      width: 1024,
-      height: 576,
+      // width: 1024,
+      // height: 576,
     ),
   );
 

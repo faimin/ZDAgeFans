@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,7 +21,7 @@ class CartoonDetailPage extends ConsumerStatefulWidget {
 }
 
 class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
-  static final m3u8URL = m3u8List.last;
+  static final m3u8URL = m3u8List[Random().nextInt(m3u8List.length)];
 
   @override
   void initState() {

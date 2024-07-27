@@ -55,12 +55,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   bool _isClick = false;
 
+  static const schemeColor = Colors.yellow;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple,
       bottomNavigationBar: CurvedNavigationBar(
         key: _bottomNavigationKey,
+        color: schemeColor,
         backgroundColor: Colors.purple,
         items: const <Widget>[
           Icon(Icons.home, size: 30),
@@ -83,7 +86,14 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: schemeColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -94,7 +104,11 @@ class _MyHomePageState extends State<MyHomePage> {
             Widget? view = pages[index];
             if (view == null) {
               if (index == 0 || index == 1) {
-                view = KeepAliveWrapper(child: HomePage(pageIndex: index));
+                view = KeepAliveWrapper(
+                  child: HomePage(
+                    pageIndex: index,
+                  ),
+                );
               } else {
                 view = KeepAliveWrapper(
                   child: Container(

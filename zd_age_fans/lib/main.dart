@@ -6,6 +6,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:window_manager/window_manager.dart';
 import 'widgets/home_page.dart';
 import 'widgets/keep_alive_wrapper.dart';
+import 'package:media_kit/media_kit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,7 @@ void main() async {
     await windowManager.focus();
   });
 
+  MediaKit.ensureInitialized();
   runApp(const ProviderScope(child: MyApp()));
 }
 

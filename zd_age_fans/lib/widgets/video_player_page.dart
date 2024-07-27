@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
-import 'package:chewie/chewie.dart';
+import 'package:media_kit/media_kit.dart';
+import 'package:media_kit_video/media_kit_video.dart';
 
-class ChewieVideoPage extends StatefulWidget {
-  const ChewieVideoPage({super.key, this.videoUrl = ''});
+class VideoPlayerPage extends StatefulWidget {
+  const VideoPlayerPage({super.key, this.videoUrl = ''});
   final String videoUrl;
 
   @override
-  State<ChewieVideoPage> createState() => _ChewieVideoPageState();
+  State<VideoPlayerPage> createState() => _VideoPlayerPageState();
 }
 
-class _ChewieVideoPageState extends State<ChewieVideoPage> {
-  late VideoPlayerController _videoPlayerController;
-  late Future<void> _initializeVideoPlayerFuture;
-
-  final _aspectRatio = 16 / 9;
+class _VideoPlayerPageState extends State<VideoPlayerPage> {
+  late final _player = Player();
+  late final _videoController = VideoController(
+    _player,
+    configuration: const VideoControllerConfiguration(
+      enableHardwareAcceleration: true,
+      width: 1024,
+      height: 576,
+    ),
+  );
 
   @override
   void initState() {
     super.initState();
-    _videoPlayerController =
-        VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl));
-    _initializeVideoPlayerFuture = _videoPlayerController.initialize();
+    _player.open(Media(widget.videoUrl));
   }
 
   /*销毁*/
   @override
   void dispose() {
-    _videoPlayerController.dispose();
+    _player.dispose();
     super.dispose();
   }
 
@@ -43,22 +46,8 @@ class _ChewieVideoPageState extends State<ChewieVideoPage> {
         backgroundColor: Colors.pink,
       ),
       body: Center(
-        child: FutureBuilder(
-          future: _initializeVideoPlayerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return Chewie(
-                controller: ChewieController(
-                  videoPlayerController: _videoPlayerController,
-                  aspectRatio: _aspectRatio, //视频宽高比
-                  autoPlay: true,
-                  fullScreenByDefault: false,
-                ),
-              );
-            } else {
-              return const Center(child: CircularProgressIndicator());
-            }
-          },
+        child: Video(
+          controller: _videoController,
         ),
       ),
     );

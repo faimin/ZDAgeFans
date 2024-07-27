@@ -25,7 +25,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
   crypto: ^3.0.3 #加密
   flutter_riverpod: ^2.5.1 #状态管理
   cached_network_image: ^3.3.1 #加载网络图片
@@ -59,28 +59,26 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
-  flutter_launcher_icons: ^0.13.1 #启动图标
+  flutter_launcher_icons: ^0.13.1 #生成图标
   # json转model
   build_runner: ^2.4.10
   json_serializable: ^6.8.0
   freezed: ^2.5.2
 
 flutter_launcher_icons:
-  image_path: "assets/icons/icon_512.png"
+  image_path: "assets/icons/icon.png"
   remove_alpha_ios: true
   ios: true
-  # image_path_ios: "assets/icons/icon_512.png"
-  # image_path_android: "assets/icons/icon_512.png"
   android: true
   macos:
     generate: true
-    #image_path: "assets/icons/macos/"
 
 flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/icon_512.png
+    - assets/icons/icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

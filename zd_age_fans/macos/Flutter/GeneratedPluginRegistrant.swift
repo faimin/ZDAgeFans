@@ -10,7 +10,7 @@ import media_kit_video
 import package_info_plus
 import path_provider_foundation
 import screen_brightness_macos
-import sqflite
+import sqflite_darwin
 import wakelock_plus
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {

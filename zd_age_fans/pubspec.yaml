@@ -20,32 +20,33 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.4.1 <4.0.0"
+  sdk: ">=3.7.0 <4.0.0"
+  flutter: ^3.29.0
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
   crypto: ^3.0.3 #加密
-  flutter_riverpod: ^2.5.1 #状态管理
-  cached_network_image: ^3.3.1 #加载网络图片
-  dio: ^5.4.3+1 #网络
+  flutter_riverpod: ^2.6.1 #状态管理
+  cached_network_image: ^3.4.1 #加载网络图片
+  dio: ^5.8.0+1 #网络
   pull_to_refresh: ^2.0.0 #刷新
-  easy_refresh: ^3.3.4 #刷新
-  carousel_slider: ^4.2.1 #轮播
+  easy_refresh: ^3.4.0 #刷新
+  carousel_slider: ^5.0.0 #轮播
   sliding_up_panel: ^2.0.0+1 #滑动吸顶
   curved_navigation_bar: ^1.0.6 #tab bar
   bot_toast: ^4.1.3 #loading or toast
   # 视频播放器
-  media_kit: ^1.1.10
-  media_kit_video: ^1.2.4
-  media_kit_libs_video: ^1.0.4
+  media_kit: ^1.1.11
+  media_kit_video: ^1.2.5
+  media_kit_libs_video: ^1.0.5
   # rinf: #rust_in_flutter
   protobuf: ^3.1.0
-  flutter_rust_bridge: ^2.1.0
-  quiver: ^3.2.1 #工具库
+  flutter_rust_bridge: ^2.8.0
+  quiver: ^3.2.2 #工具库
   # 路由
-  go_router: ^14.2.3
+  go_router: ^14.8.0
   # json转model
   json_annotation: ^4.9.0
   freezed_annotation: ^2.4.1
@@ -59,8 +60,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
-  flutter_launcher_icons: ^0.13.1 #生成图标
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3 #生成图标
   # json转model
   build_runner: ^2.4.10
   json_serializable: ^6.8.0

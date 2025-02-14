@@ -5,3 +5,7 @@
 # Xcode-related
 **/dgph
 **/xcuserdata/
+
+.DS_Store
+.build/
+.swiftpm/

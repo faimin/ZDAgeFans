@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:signals/signals_flutter.dart';
 import 'package:zd_age_fans/models/home_model.dart';
 import 'package:zd_age_fans/providers/home_provider.dart';
 import 'package:zd_age_fans/widgets/cartoon_detail_page.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
 
-final homeProvider =
-    StateNotifierProvider<HomeNotifier, HomeModel>((ref) => HomeNotifier());
-
-class HomePage extends ConsumerStatefulWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.pageIndex});
 
   final int pageIndex;
 
   @override
-  ConsumerState<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends ConsumerState<HomePage> {
+class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    ref.read(homeProvider.notifier).fetchData();
+    fetchHomeData();
   }
 
   @override
   Widget build(BuildContext context) {
-    final homeModel = ref.watch(homeProvider);
+    final homeModel = homeSignal.watch(context);
     if (widget.pageIndex == 0) {
       final weekModel = homeModel.weekList;
       return CustomTabbarView(

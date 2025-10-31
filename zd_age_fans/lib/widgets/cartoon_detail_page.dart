@@ -1,37 +1,34 @@
 import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:signals/signals_flutter.dart';
 import 'package:zd_age_fans/common/mock_data.dart';
 import 'package:zd_age_fans/models/detail_model.dart';
 import 'package:zd_age_fans/providers/detail_provider.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
 import 'package:zd_age_fans/widgets/video_player_page.dart';
 
-final detailProvider = StateNotifierProvider<DetailNotifier, DetailModel>(
-    (ref) => DetailNotifier());
-
-class CartoonDetailPage extends ConsumerStatefulWidget {
+class CartoonDetailPage extends StatefulWidget {
   const CartoonDetailPage({super.key, required this.cartoonId});
 
   final String cartoonId;
 
   @override
-  ConsumerState<CartoonDetailPage> createState() => _CartoonDetailPageState();
+  State<CartoonDetailPage> createState() => _CartoonDetailPageState();
 }
 
-class _CartoonDetailPageState extends ConsumerState<CartoonDetailPage> {
+class _CartoonDetailPageState extends State<CartoonDetailPage> {
   static final m3u8URL = m3u8List[Random().nextInt(m3u8List.length)];
 
   @override
   void initState() {
     super.initState();
-    ref.read(detailProvider.notifier).fetchData(widget.cartoonId);
+    fetchDetailData(widget.cartoonId);
   }
 
   @override
   Widget build(BuildContext context) {
-    final detailModel = ref.watch(detailProvider);
+    final detailModel = detailSignal.watch(context);
 
     return Container(
       color: Colors.purple,

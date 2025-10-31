@@ -8,8 +8,8 @@ import 'package:zd_age_fans/providers/detail_provider.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
 import 'package:zd_age_fans/widgets/video_player_page.dart';
 
-final detailProvider = StateNotifierProvider<DetailNotifier, DetailModel>(
-    (ref) => DetailNotifier());
+final detailProvider = NotifierProvider<DetailNotifier, DetailModel>(
+    DetailNotifier.new);
 
 class CartoonDetailPage extends ConsumerStatefulWidget {
   const CartoonDetailPage({super.key, required this.cartoonId});

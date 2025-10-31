@@ -4,15 +4,18 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:zd_age_fans/common/http.dart';
 import '../models/detail_model.dart';
 
-class DetailNotifier extends StateNotifier<DetailModel> {
-  DetailNotifier()
-      : super(DetailModel(
-            video: null,
-            series: [],
-            similar: [],
-            playerLabelArr: null,
-            playerVip: '',
-            playerJx: PlayerJx(vip: "", zj: "")));
+class DetailNotifier extends Notifier<DetailModel> {
+  @override
+  DetailModel build() {
+    return DetailModel(
+      video: null,
+      series: [],
+      similar: [],
+      playerLabelArr: null,
+      playerVip: '',
+      playerJx: PlayerJx(vip: "", zj: ""),
+    );
+  }
 
   void fetchData(String cartoonId) async {
     final cancel = BotToast.showLoading();

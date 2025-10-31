@@ -7,7 +7,7 @@ import 'package:zd_age_fans/widgets/cartoon_detail_page.dart';
 import 'package:zd_age_fans/widgets/custom_tabbar_view.dart';
 
 final homeProvider =
-    StateNotifierProvider<HomeNotifier, HomeModel>((ref) => HomeNotifier());
+    NotifierProvider<HomeNotifier, HomeModel>(HomeNotifier.new);
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key, required this.pageIndex});
